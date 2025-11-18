@@ -22,25 +22,25 @@ class SplashScreen extends StatelessWidget {
             children: [
               // Logo/Icon
               Container(
-                width: 100,
-                height: 100,
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(30),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.black.withValues(alpha: 0.2),
-                      blurRadius: 30,
-                      offset: const Offset(0, 10),
+                    width: 100,
+                    height: 100,
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(30),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black.withValues(alpha: 0.2),
+                          blurRadius: 30,
+                          offset: const Offset(0, 10),
+                        ),
+                      ],
                     ),
-                  ],
-                ),
-                child: const Icon(
-                  Icons.business_center_rounded,
-                  size: 50,
-                  color: Color(0xFF6366F1),
-                ),
-              )
+                    child: const Icon(
+                      Icons.business_center_rounded,
+                      size: 50,
+                      color: Color(0xFF6366F1),
+                    ),
+                  )
                   .animate(
                     onPlay: (controller) => controller.repeat(reverse: true),
                   )
@@ -55,14 +55,14 @@ class SplashScreen extends StatelessWidget {
 
               // App Name
               Text(
-                'ProConnect',
-                style: GoogleFonts.inter(
-                  fontSize: 36,
-                  fontWeight: FontWeight.w800,
-                  color: Colors.white,
-                  letterSpacing: -1,
-                ),
-              )
+                    'Pro Connect',
+                    style: GoogleFonts.inter(
+                      fontSize: 36,
+                      fontWeight: FontWeight.w800,
+                      color: Colors.white,
+                      letterSpacing: -1,
+                    ),
+                  )
                   .animate()
                   .fadeIn(duration: 600.ms, delay: 200.ms)
                   .slideY(begin: 0.3, end: 0),
@@ -70,14 +70,14 @@ class SplashScreen extends StatelessWidget {
               const SizedBox(height: 8),
 
               Text(
-                'Votre réseau professionnel',
-                style: GoogleFonts.inter(
-                  fontSize: 16,
-                  fontWeight: FontWeight.w400,
-                  color: Colors.white.withValues(alpha: 0.9),
-                  letterSpacing: 0.5,
-                ),
-              )
+                    'Votre réseau professionnel',
+                    style: GoogleFonts.inter(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w400,
+                      color: Colors.white.withValues(alpha: 0.9),
+                      letterSpacing: 0.5,
+                    ),
+                  )
                   .animate()
                   .fadeIn(duration: 600.ms, delay: 400.ms)
                   .slideY(begin: 0.3, end: 0),

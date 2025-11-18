@@ -69,16 +69,17 @@ class _ProConnectAppState extends State<ProConnectApp> {
     final authController = Get.find<AuthController>();
 
     return GetMaterialApp(
-      title: 'ProConnect',
+      title: 'Pro Connect',
       theme: AppTheme.lightTheme,
       debugShowCheckedModeBanner: false,
-      home: !_isInitialized
-          ? const SplashScreen()
-          : Obx(() {
-              return authController.isAuthenticated
-                  ? const HomeModule()
-                  : const LoginModule();
-            }),
+      home:
+          !_isInitialized
+              ? const SplashScreen()
+              : Obx(() {
+                return authController.isAuthenticated
+                    ? const HomeModule()
+                    : const LoginModule();
+              }),
     );
   }
 }

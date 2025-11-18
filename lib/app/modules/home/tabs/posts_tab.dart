@@ -116,16 +116,20 @@ class _PostsTabState extends State<PostsTab> {
                           Icons.search,
                           color: Colors.white.withValues(alpha: 0.8),
                         ),
-                        suffixIcon: _searchController.text.isNotEmpty
-                            ? IconButton(
-                                icon: const Icon(Icons.clear, color: Colors.white),
-                                onPressed: () {
-                                  _searchController.clear();
-                                  postController.fetchPosts(query: '');
-                                  setState(() {});
-                                },
-                              )
-                            : null,
+                        suffixIcon:
+                            _searchController.text.isNotEmpty
+                                ? IconButton(
+                                  icon: const Icon(
+                                    Icons.clear,
+                                    color: Colors.white,
+                                  ),
+                                  onPressed: () {
+                                    _searchController.clear();
+                                    postController.fetchPosts(query: '');
+                                    setState(() {});
+                                  },
+                                )
+                                : null,
                         filled: true,
                         fillColor: Colors.white.withValues(alpha: 0.2),
                         border: OutlineInputBorder(
@@ -139,8 +143,9 @@ class _PostsTabState extends State<PostsTab> {
                       ),
                       style: const TextStyle(color: Colors.white),
                       onChanged: (value) => setState(() {}),
-                      onSubmitted: (value) =>
-                          postController.fetchPosts(query: value.trim()),
+                      onSubmitted:
+                          (value) =>
+                              postController.fetchPosts(query: value.trim()),
                     ),
                   ],
                 ).animate().fadeIn(duration: 600.ms).slideY(begin: -0.2),
@@ -168,17 +173,23 @@ class _PostsTabState extends State<PostsTab> {
                           children: [
                             Expanded(
                               child: InkWell(
-                                onTap: () => postController.fetchPosts(onlyMine: false),
+                                onTap:
+                                    () => postController.fetchPosts(
+                                      onlyMine: false,
+                                    ),
                                 borderRadius: const BorderRadius.only(
                                   topLeft: Radius.circular(14),
                                   bottomLeft: Radius.circular(14),
                                 ),
                                 child: Container(
-                                  padding: const EdgeInsets.symmetric(vertical: 12),
+                                  padding: const EdgeInsets.symmetric(
+                                    vertical: 12,
+                                  ),
                                   decoration: BoxDecoration(
-                                    gradient: !showOnlyMine
-                                        ? AppTheme.primaryGradient
-                                        : null,
+                                    gradient:
+                                        !showOnlyMine
+                                            ? AppTheme.primaryGradient
+                                            : null,
                                     borderRadius: const BorderRadius.only(
                                       topLeft: Radius.circular(14),
                                       bottomLeft: Radius.circular(14),
@@ -190,9 +201,10 @@ class _PostsTabState extends State<PostsTab> {
                                       Icon(
                                         Icons.public,
                                         size: 18,
-                                        color: !showOnlyMine
-                                            ? Colors.white
-                                            : AppTheme.textSecondaryColor,
+                                        color:
+                                            !showOnlyMine
+                                                ? Colors.white
+                                                : AppTheme.textSecondaryColor,
                                       ),
                                       const SizedBox(width: 6),
                                       Text(
@@ -200,9 +212,10 @@ class _PostsTabState extends State<PostsTab> {
                                         style: GoogleFonts.inter(
                                           fontSize: 14,
                                           fontWeight: FontWeight.w600,
-                                          color: !showOnlyMine
-                                              ? Colors.white
-                                              : AppTheme.textSecondaryColor,
+                                          color:
+                                              !showOnlyMine
+                                                  ? Colors.white
+                                                  : AppTheme.textSecondaryColor,
                                         ),
                                       ),
                                     ],
@@ -212,17 +225,23 @@ class _PostsTabState extends State<PostsTab> {
                             ),
                             Expanded(
                               child: InkWell(
-                                onTap: () => postController.fetchPosts(onlyMine: true),
+                                onTap:
+                                    () => postController.fetchPosts(
+                                      onlyMine: true,
+                                    ),
                                 borderRadius: const BorderRadius.only(
                                   topRight: Radius.circular(14),
                                   bottomRight: Radius.circular(14),
                                 ),
                                 child: Container(
-                                  padding: const EdgeInsets.symmetric(vertical: 12),
+                                  padding: const EdgeInsets.symmetric(
+                                    vertical: 12,
+                                  ),
                                   decoration: BoxDecoration(
-                                    gradient: showOnlyMine
-                                        ? AppTheme.primaryGradient
-                                        : null,
+                                    gradient:
+                                        showOnlyMine
+                                            ? AppTheme.primaryGradient
+                                            : null,
                                     borderRadius: const BorderRadius.only(
                                       topRight: Radius.circular(14),
                                       bottomRight: Radius.circular(14),
@@ -234,9 +253,10 @@ class _PostsTabState extends State<PostsTab> {
                                       Icon(
                                         Icons.person,
                                         size: 18,
-                                        color: showOnlyMine
-                                            ? Colors.white
-                                            : AppTheme.textSecondaryColor,
+                                        color:
+                                            showOnlyMine
+                                                ? Colors.white
+                                                : AppTheme.textSecondaryColor,
                                       ),
                                       const SizedBox(width: 6),
                                       Text(
@@ -244,9 +264,10 @@ class _PostsTabState extends State<PostsTab> {
                                         style: GoogleFonts.inter(
                                           fontSize: 14,
                                           fontWeight: FontWeight.w600,
-                                          color: showOnlyMine
-                                              ? Colors.white
-                                              : AppTheme.textSecondaryColor,
+                                          color:
+                                              showOnlyMine
+                                                  ? Colors.white
+                                                  : AppTheme.textSecondaryColor,
                                         ),
                                       ),
                                     ],
@@ -275,7 +296,11 @@ class _PostsTabState extends State<PostsTab> {
                       child: Material(
                         color: Colors.transparent,
                         child: InkWell(
-                          onTap: () => _openPostDialog(context, companies: companies),
+                          onTap:
+                              () => _openPostDialog(
+                                context,
+                                companies: companies,
+                              ),
                           borderRadius: BorderRadius.circular(14),
                           child: Container(
                             padding: const EdgeInsets.all(12),
@@ -347,7 +372,11 @@ class _PostsTabState extends State<PostsTab> {
                       if (_searchController.text.isEmpty) ...[
                         const SizedBox(height: 24),
                         ElevatedButton.icon(
-                          onPressed: () => _openPostDialog(context, companies: companies),
+                          onPressed:
+                              () => _openPostDialog(
+                                context,
+                                companies: companies,
+                              ),
                           icon: const Icon(Icons.add),
                           label: const Text('Créer une publication'),
                         ),
@@ -358,160 +387,162 @@ class _PostsTabState extends State<PostsTab> {
               )
             else
               SliverList(
-                delegate: SliverChildBuilderDelegate(
-                  (context, index) {
-                    final post = posts[index];
-                    final isMyPost = currentUser?.name == post.authorName;
+                delegate: SliverChildBuilderDelegate((context, index) {
+                  final post = posts[index];
+                  final isMyPost = currentUser?.name == post.authorName;
 
-                    return Padding(
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: 20,
-                        vertical: 8,
-                      ),
-                      child: PremiumCard(
-                        onTap: () => _showPostDetails(context, post),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            // En-tête avec auteur
-                            Row(
-                              children: [
-                                Container(
-                                  width: 40,
-                                  height: 40,
-                                  decoration: BoxDecoration(
-                                    gradient: isMyPost
-                                        ? AppTheme.primaryGradient
-                                        : LinearGradient(
-                                            colors: [
-                                              AppTheme.accentColor,
-                                              AppTheme.accentLight,
-                                            ],
-                                          ),
-                                    shape: BoxShape.circle,
-                                  ),
-                                  child: Center(
-                                    child: Text(
-                                      post.authorName.isNotEmpty
-                                          ? post.authorName[0].toUpperCase()
-                                          : '?',
-                                      style: GoogleFonts.inter(
-                                        fontSize: 18,
-                                        fontWeight: FontWeight.w700,
-                                        color: Colors.white,
-                                      ),
+                  return Padding(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 20,
+                      vertical: 8,
+                    ),
+                    child: PremiumCard(
+                          onTap: () => _showPostDetails(context, post),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              // En-tête avec auteur
+                              Row(
+                                children: [
+                                  Container(
+                                    width: 40,
+                                    height: 40,
+                                    decoration: BoxDecoration(
+                                      gradient:
+                                          isMyPost
+                                              ? AppTheme.primaryGradient
+                                              : LinearGradient(
+                                                colors: [
+                                                  AppTheme.accentColor,
+                                                  AppTheme.accentLight,
+                                                ],
+                                              ),
+                                      shape: BoxShape.circle,
                                     ),
-                                  ),
-                                ),
-                                const SizedBox(width: 12),
-                                Expanded(
-                                  child: Column(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
-                                    children: [
-                                      Text(
-                                        post.authorName,
+                                    child: Center(
+                                      child: Text(
+                                        post.authorName.isNotEmpty
+                                            ? post.authorName[0].toUpperCase()
+                                            : '?',
                                         style: GoogleFonts.inter(
-                                          fontSize: 15,
-                                          fontWeight: FontWeight.w600,
-                                          color: AppTheme.textPrimaryColor,
+                                          fontSize: 18,
+                                          fontWeight: FontWeight.w700,
+                                          color: Colors.white,
                                         ),
                                       ),
-                                      if (post.company != null)
+                                    ),
+                                  ),
+                                  const SizedBox(width: 12),
+                                  Expanded(
+                                    child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
                                         Text(
-                                          post.company!.name,
+                                          post.authorName,
                                           style: GoogleFonts.inter(
-                                            fontSize: 13,
-                                            color: AppTheme.textSecondaryColor,
+                                            fontSize: 15,
+                                            fontWeight: FontWeight.w600,
+                                            color: AppTheme.textPrimaryColor,
                                           ),
                                         ),
-                                    ],
+                                        if (post.company != null)
+                                          Text(
+                                            post.company!.name,
+                                            style: GoogleFonts.inter(
+                                              fontSize: 13,
+                                              color:
+                                                  AppTheme.textSecondaryColor,
+                                            ),
+                                          ),
+                                      ],
+                                    ),
                                   ),
+                                  if (isMyPost)
+                                    PopupMenuButton<String>(
+                                      icon: const Icon(
+                                        Icons.more_vert,
+                                        color: AppTheme.textSecondaryColor,
+                                      ),
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(12),
+                                      ),
+                                      onSelected: (value) {
+                                        if (value == 'edit') {
+                                          _openPostDialog(
+                                            context,
+                                            post: post,
+                                            companies: companies,
+                                          );
+                                        } else {
+                                          _deletePost(post.id, post.title);
+                                        }
+                                      },
+                                      itemBuilder:
+                                          (_) => [
+                                            const PopupMenuItem(
+                                              value: 'edit',
+                                              child: Row(
+                                                children: [
+                                                  Icon(
+                                                    Icons.edit_outlined,
+                                                    size: 20,
+                                                    color:
+                                                        AppTheme.primaryColor,
+                                                  ),
+                                                  SizedBox(width: 12),
+                                                  Text('Modifier'),
+                                                ],
+                                              ),
+                                            ),
+                                            const PopupMenuItem(
+                                              value: 'delete',
+                                              child: Row(
+                                                children: [
+                                                  Icon(
+                                                    Icons.delete_outline,
+                                                    size: 20,
+                                                    color: AppTheme.errorColor,
+                                                  ),
+                                                  SizedBox(width: 12),
+                                                  Text('Supprimer'),
+                                                ],
+                                              ),
+                                            ),
+                                          ],
+                                    ),
+                                ],
+                              ),
+                              const SizedBox(height: 16),
+                              // Titre
+                              Text(
+                                post.title,
+                                style: GoogleFonts.inter(
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.w700,
+                                  color: AppTheme.textPrimaryColor,
                                 ),
-                                if (isMyPost)
-                                  PopupMenuButton<String>(
-                                    icon: const Icon(
-                                      Icons.more_vert,
-                                      color: AppTheme.textSecondaryColor,
-                                    ),
-                                    shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(12),
-                                    ),
-                                    onSelected: (value) {
-                                      if (value == 'edit') {
-                                        _openPostDialog(
-                                          context,
-                                          post: post,
-                                          companies: companies,
-                                        );
-                                      } else {
-                                        _deletePost(post.id, post.title);
-                                      }
-                                    },
-                                    itemBuilder: (_) => [
-                                      const PopupMenuItem(
-                                        value: 'edit',
-                                        child: Row(
-                                          children: [
-                                            Icon(
-                                              Icons.edit_outlined,
-                                              size: 20,
-                                              color: AppTheme.primaryColor,
-                                            ),
-                                            SizedBox(width: 12),
-                                            Text('Modifier'),
-                                          ],
-                                        ),
-                                      ),
-                                      const PopupMenuItem(
-                                        value: 'delete',
-                                        child: Row(
-                                          children: [
-                                            Icon(
-                                              Icons.delete_outline,
-                                              size: 20,
-                                              color: AppTheme.errorColor,
-                                            ),
-                                            SizedBox(width: 12),
-                                            Text('Supprimer'),
-                                          ],
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                              ],
-                            ),
-                            const SizedBox(height: 16),
-                            // Titre
-                            Text(
-                              post.title,
-                              style: GoogleFonts.inter(
-                                fontSize: 18,
-                                fontWeight: FontWeight.w700,
-                                color: AppTheme.textPrimaryColor,
                               ),
-                            ),
-                            const SizedBox(height: 8),
-                            // Contenu
-                            Text(
-                              post.content,
-                              style: GoogleFonts.inter(
-                                fontSize: 15,
-                                color: AppTheme.textSecondaryColor,
-                                height: 1.5,
+                              const SizedBox(height: 8),
+                              // Contenu
+                              Text(
+                                post.content,
+                                style: GoogleFonts.inter(
+                                  fontSize: 15,
+                                  color: AppTheme.textSecondaryColor,
+                                  height: 1.5,
+                                ),
+                                maxLines: 3,
+                                overflow: TextOverflow.ellipsis,
                               ),
-                              maxLines: 3,
-                              overflow: TextOverflow.ellipsis,
-                            ),
-                          ],
-                        ),
-                      )
-                          .animate()
-                          .fadeIn(delay: (500 + index * 100).ms)
-                          .slideY(begin: 0.2),
-                    );
-                  },
-                  childCount: posts.length,
-                ),
+                            ],
+                          ),
+                        )
+                        .animate()
+                        .fadeIn(delay: (500 + index * 100).ms)
+                        .slideY(begin: 0.2),
+                  );
+                }, childCount: posts.length),
               ),
 
             const SliverToBoxAdapter(child: SizedBox(height: 32)),
@@ -526,118 +557,120 @@ class _PostsTabState extends State<PostsTab> {
       context: context,
       isScrollControlled: true,
       backgroundColor: Colors.transparent,
-      builder: (_) => Container(
-        decoration: const BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(30),
-            topRight: Radius.circular(30),
-          ),
-        ),
-        child: DraggableScrollableSheet(
-          initialChildSize: 0.7,
-          minChildSize: 0.5,
-          maxChildSize: 0.95,
-          builder: (_, controller) => SingleChildScrollView(
-            controller: controller,
-            child: Padding(
-              padding: const EdgeInsets.all(24),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  // Barre de drag
-                  Center(
-                    child: Container(
-                      width: 40,
-                      height: 4,
-                      decoration: BoxDecoration(
-                        color: AppTheme.textDisabledColor,
-                        borderRadius: BorderRadius.circular(2),
-                      ),
-                    ),
-                  ),
-                  const SizedBox(height: 24),
-                  // Auteur
-                  Row(
-                    children: [
-                      Container(
-                        width: 50,
-                        height: 50,
-                        decoration: BoxDecoration(
-                          gradient: AppTheme.primaryGradient,
-                          shape: BoxShape.circle,
-                        ),
-                        child: Center(
-                          child: Text(
-                            post.authorName.isNotEmpty
-                                ? post.authorName[0].toUpperCase()
-                                : '?',
-                            style: GoogleFonts.inter(
-                              fontSize: 22,
-                              fontWeight: FontWeight.w700,
-                              color: Colors.white,
-                            ),
-                          ),
-                        ),
-                      ),
-                      const SizedBox(width: 12),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            post.authorName,
-                            style: GoogleFonts.inter(
-                              fontSize: 16,
-                              fontWeight: FontWeight.w600,
-                            ),
-                          ),
-                          if (post.company != null)
-                            Text(
-                              post.company!.name,
-                              style: GoogleFonts.inter(
-                                fontSize: 14,
-                                color: AppTheme.textSecondaryColor,
-                              ),
-                            ),
-                        ],
-                      ),
-                    ],
-                  ),
-                  const SizedBox(height: 24),
-                  // Titre
-                  Text(
-                    post.title,
-                    style: GoogleFonts.inter(
-                      fontSize: 24,
-                      fontWeight: FontWeight.w700,
-                      color: AppTheme.textPrimaryColor,
-                    ),
-                  ),
-                  const SizedBox(height: 16),
-                  // Contenu
-                  Text(
-                    post.content,
-                    style: GoogleFonts.inter(
-                      fontSize: 16,
-                      color: AppTheme.textSecondaryColor,
-                      height: 1.6,
-                    ),
-                  ),
-                  const SizedBox(height: 32),
-                  // Bouton fermer
-                  SizedBox(
-                    width: double.infinity,
-                    child: OutlinedButton(
-                      onPressed: () => Navigator.pop(context),
-                      child: const Text('Fermer'),
-                    ),
-                  ),
-                ],
+      builder:
+          (_) => Container(
+            decoration: const BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(30),
+                topRight: Radius.circular(30),
               ),
             ),
+            child: DraggableScrollableSheet(
+              initialChildSize: 0.7,
+              minChildSize: 0.5,
+              maxChildSize: 0.95,
+              builder:
+                  (_, controller) => SingleChildScrollView(
+                    controller: controller,
+                    child: Padding(
+                      padding: const EdgeInsets.all(24),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          // Barre de drag
+                          Center(
+                            child: Container(
+                              width: 40,
+                              height: 4,
+                              decoration: BoxDecoration(
+                                color: AppTheme.textDisabledColor,
+                                borderRadius: BorderRadius.circular(2),
+                              ),
+                            ),
+                          ),
+                          const SizedBox(height: 24),
+                          // Auteur
+                          Row(
+                            children: [
+                              Container(
+                                width: 50,
+                                height: 50,
+                                decoration: BoxDecoration(
+                                  gradient: AppTheme.primaryGradient,
+                                  shape: BoxShape.circle,
+                                ),
+                                child: Center(
+                                  child: Text(
+                                    post.authorName.isNotEmpty
+                                        ? post.authorName[0].toUpperCase()
+                                        : '?',
+                                    style: GoogleFonts.inter(
+                                      fontSize: 22,
+                                      fontWeight: FontWeight.w700,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              const SizedBox(width: 12),
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    post.authorName,
+                                    style: GoogleFonts.inter(
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.w600,
+                                    ),
+                                  ),
+                                  if (post.company != null)
+                                    Text(
+                                      post.company!.name,
+                                      style: GoogleFonts.inter(
+                                        fontSize: 14,
+                                        color: AppTheme.textSecondaryColor,
+                                      ),
+                                    ),
+                                ],
+                              ),
+                            ],
+                          ),
+                          const SizedBox(height: 24),
+                          // Titre
+                          Text(
+                            post.title,
+                            style: GoogleFonts.inter(
+                              fontSize: 24,
+                              fontWeight: FontWeight.w700,
+                              color: AppTheme.textPrimaryColor,
+                            ),
+                          ),
+                          const SizedBox(height: 16),
+                          // Contenu
+                          Text(
+                            post.content,
+                            style: GoogleFonts.inter(
+                              fontSize: 16,
+                              color: AppTheme.textSecondaryColor,
+                              height: 1.6,
+                            ),
+                          ),
+                          const SizedBox(height: 32),
+                          // Bouton fermer
+                          SizedBox(
+                            width: double.infinity,
+                            child: OutlinedButton(
+                              onPressed: () => Navigator.pop(context),
+                              child: const Text('Fermer'),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+            ),
           ),
-        ),
-      ),
     );
   }
 
@@ -675,126 +708,132 @@ class _PostsTabState extends State<PostsTab> {
 
     await showDialog<void>(
       context: context,
-      builder: (_) => AlertDialog(
-        title: Row(
-          children: [
-            Container(
-              padding: const EdgeInsets.all(8),
-              decoration: BoxDecoration(
-                gradient: AppTheme.primaryGradient,
-                borderRadius: BorderRadius.circular(10),
-              ),
-              child: const Icon(
-                Icons.article_outlined,
-                color: Colors.white,
-                size: 20,
-              ),
-            ),
-            const SizedBox(width: 12),
-            Text(
-              post == null ? 'Nouvelle publication' : 'Modifier',
-            ),
-          ],
-        ),
-        content: Form(
-          key: formKey,
-          child: SingleChildScrollView(
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              crossAxisAlignment: CrossAxisAlignment.stretch,
+      builder:
+          (_) => AlertDialog(
+            title: Row(
               children: [
-                TextFormField(
-                  controller: titleController,
-                  decoration: const InputDecoration(
-                    labelText: 'Titre',
-                    prefixIcon: Icon(Icons.title),
+                Container(
+                  padding: const EdgeInsets.all(8),
+                  decoration: BoxDecoration(
+                    gradient: AppTheme.primaryGradient,
+                    borderRadius: BorderRadius.circular(10),
                   ),
-                  validator: (value) =>
-                      value == null || value.isEmpty ? 'Champ requis' : null,
+                  child: const Icon(
+                    Icons.article_outlined,
+                    color: Colors.white,
+                    size: 20,
+                  ),
                 ),
-                const SizedBox(height: 16),
-                TextFormField(
-                  controller: contentController,
-                  decoration: const InputDecoration(
-                    labelText: 'Contenu',
-                    prefixIcon: Icon(Icons.description_outlined),
-                    alignLabelWithHint: true,
-                  ),
-                  maxLines: 5,
-                  validator: (value) =>
-                      value == null || value.isEmpty ? 'Champ requis' : null,
-                ),
-                const SizedBox(height: 16),
-                if (companies.isNotEmpty)
-                  DropdownButtonFormField<int>(
-                    initialValue: selectedCompanyId,
-                    items: companies
-                        .map(
-                          (company) => DropdownMenuItem<int>(
-                            value: company.id,
-                            child: Text(company.name),
-                          ),
-                        )
-                        .toList(),
-                    decoration: const InputDecoration(
-                      labelText: 'Entreprise (optionnel)',
-                      prefixIcon: Icon(Icons.business_outlined),
-                    ),
-                    onChanged: (value) => selectedCompanyId = value,
-                  ),
+                const SizedBox(width: 12),
+                Text(post == null ? 'Nouvelle publication' : 'Modifier'),
               ],
             ),
-          ),
-        ),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.of(context).pop(),
-            child: const Text('Annuler'),
-          ),
-          ElevatedButton(
-            onPressed: () async {
-              if (!(formKey.currentState?.validate() ?? false)) {
-                ErrorHandler.showWarningSnackbar(
-                  'Veuillez remplir tous les champs',
-                );
-                return;
-              }
+            content: Form(
+              key: formKey,
+              child: SingleChildScrollView(
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    TextFormField(
+                      controller: titleController,
+                      decoration: const InputDecoration(
+                        labelText: 'Titre',
+                        prefixIcon: Icon(Icons.title),
+                      ),
+                      validator:
+                          (value) =>
+                              value == null || value.isEmpty
+                                  ? 'Champ requis'
+                                  : null,
+                    ),
+                    const SizedBox(height: 16),
+                    TextFormField(
+                      controller: contentController,
+                      decoration: const InputDecoration(
+                        labelText: 'Contenu',
+                        prefixIcon: Icon(Icons.description_outlined),
+                        alignLabelWithHint: true,
+                      ),
+                      maxLines: 5,
+                      validator:
+                          (value) =>
+                              value == null || value.isEmpty
+                                  ? 'Champ requis'
+                                  : null,
+                    ),
+                    const SizedBox(height: 16),
+                    if (companies.isNotEmpty)
+                      DropdownButtonFormField<int>(
+                        value: selectedCompanyId,
+                        items:
+                            companies
+                                .map(
+                                  (company) => DropdownMenuItem<int>(
+                                    value: company.id,
+                                    child: Text(company.name),
+                                  ),
+                                )
+                                .toList(),
+                        decoration: const InputDecoration(
+                          labelText: 'Entreprise (optionnel)',
+                          prefixIcon: Icon(Icons.business_outlined),
+                        ),
+                        onChanged: (value) => selectedCompanyId = value,
+                      ),
+                  ],
+                ),
+              ),
+            ),
+            actions: [
+              TextButton(
+                onPressed: () => Navigator.of(context).pop(),
+                child: const Text('Annuler'),
+              ),
+              ElevatedButton(
+                onPressed: () async {
+                  if (!(formKey.currentState?.validate() ?? false)) {
+                    ErrorHandler.showWarningSnackbar(
+                      'Veuillez remplir tous les champs',
+                    );
+                    return;
+                  }
 
-              final payload = PostPayload(
-                title: titleController.text.trim(),
-                content: contentController.text.trim(),
-                companyId: selectedCompanyId,
-              );
-
-              bool success;
-              if (post == null) {
-                success = await postController.createPost(payload);
-              } else {
-                success = await postController.updatePost(post.id, payload);
-              }
-
-              if (context.mounted) {
-                Navigator.of(context).pop();
-                if (success) {
-                  await postController.fetchPosts();
-                  await Get.find<AuthController>().fetchProfile();
-
-                  ErrorHandler.showSuccessSnackbar(
-                    post == null
-                        ? 'Publication créée'
-                        : 'Publication modifiée',
+                  final payload = PostPayload(
+                    title: titleController.text.trim(),
+                    content: contentController.text.trim(),
+                    companyId: selectedCompanyId,
                   );
-                } else {
-                  ErrorHandler.showErrorSnackbar(
-                    'Erreur lors de l\'enregistrement',
-                  );
-                }
-              }
-            },
-            child: const Text('Enregistrer'),
+
+                  bool success;
+                  if (post == null) {
+                    success = await postController.createPost(payload);
+                  } else {
+                    success = await postController.updatePost(post.id, payload);
+                  }
+
+                  if (context.mounted) {
+                    Navigator.of(context).pop();
+                    if (success) {
+                      await postController.fetchPosts();
+                      await Get.find<AuthController>().fetchProfile();
+
+                      ErrorHandler.showSuccessSnackbar(
+                        post == null
+                            ? 'Publication créée'
+                            : 'Publication modifiée',
+                      );
+                    } else {
+                      ErrorHandler.showErrorSnackbar(
+                        'Erreur lors de l\'enregistrement',
+                      );
+                    }
+                  }
+                },
+                child: const Text('Enregistrer'),
+              ),
+            ],
           ),
-        ],
-      ),
     );
   }
 }

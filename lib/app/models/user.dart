@@ -30,12 +30,16 @@ class AppUser {
       email: json['email'] as String,
       accountType: json['account_type'] as String,
       address: json['address'] as String,
-      companies: companiesJson
-          .map((company) => Company.fromJson(company as Map<String, dynamic>))
-          .toList(),
-      posts: postsJson
-          .map((post) => PostModel.fromJson(post as Map<String, dynamic>))
-          .toList(),
+      companies:
+          companiesJson
+              .map(
+                (company) => Company.fromJson(company as Map<String, dynamic>),
+              )
+              .toList(),
+      posts:
+          postsJson
+              .map((post) => PostModel.fromJson(post as Map<String, dynamic>))
+              .toList(),
     );
   }
 
@@ -51,10 +55,7 @@ class AppUser {
     };
   }
 
-  AppUser copyWith({
-    List<Company>? companies,
-    List<PostModel>? posts,
-  }) {
+  AppUser copyWith({List<Company>? companies, List<PostModel>? posts}) {
     return AppUser(
       id: id,
       name: name,

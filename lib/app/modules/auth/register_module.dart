@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:frontend/app/modules/home/home_module.dart' show HomeModule;
+import 'package:frontend/app/routes/app_router.dart' show AppRoutes;
 import 'package:get/get.dart';
 
 import '../../../common/widgets/custom_text_field.dart';
@@ -41,10 +43,7 @@ class _RegisterModuleState extends State<RegisterModule> {
     final authController = Get.find<AuthController>();
 
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Créer un compte'),
-        elevation: 0,
-      ),
+      appBar: AppBar(title: const Text('Créer un compte'), elevation: 0),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(24),
         child: Obx(() {
@@ -56,19 +55,13 @@ class _RegisterModuleState extends State<RegisterModule> {
               children: [
                 // En-tête
                 const Text(
-                  'Rejoignez ProConnect',
-                  style: TextStyle(
-                    fontSize: 28,
-                    fontWeight: FontWeight.bold,
-                  ),
+                  'Rejoignez Pro Connect',
+                  style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
                 ),
                 const SizedBox(height: 8),
                 const Text(
                   'Créez votre compte en quelques étapes',
-                  style: TextStyle(
-                    fontSize: 16,
-                    color: Color(0xFF6B7280),
-                  ),
+                  style: TextStyle(fontSize: 16, color: Color(0xFF6B7280)),
                 ),
                 const SizedBox(height: 32),
 
@@ -81,7 +74,10 @@ class _RegisterModuleState extends State<RegisterModule> {
                       children: [
                         Row(
                           children: [
-                            Icon(Icons.person_outline, color: Theme.of(context).colorScheme.primary),
+                            Icon(
+                              Icons.person_outline,
+                              color: Theme.of(context).colorScheme.primary,
+                            ),
                             const SizedBox(width: 8),
                             const Text(
                               'Informations personnelles',
@@ -152,7 +148,10 @@ class _RegisterModuleState extends State<RegisterModule> {
                       children: [
                         Row(
                           children: [
-                            Icon(Icons.work_outline, color: Theme.of(context).colorScheme.primary),
+                            Icon(
+                              Icons.work_outline,
+                              color: Theme.of(context).colorScheme.primary,
+                            ),
                             const SizedBox(width: 8),
                             const Text(
                               'Type de compte',
@@ -166,7 +165,7 @@ class _RegisterModuleState extends State<RegisterModule> {
                         const SizedBox(height: 20),
 
                         DropdownButtonFormField<String>(
-                          initialValue: _accountType,
+                          value: _accountType,
                           decoration: const InputDecoration(
                             labelText: 'Sélectionnez votre type de compte',
                             prefixIcon: Icon(Icons.account_circle_outlined),
@@ -235,16 +234,17 @@ class _RegisterModuleState extends State<RegisterModule> {
                   height: 50,
                   child: ElevatedButton(
                     onPressed: isLoading ? null : _submit,
-                    child: isLoading
-                        ? const SizedBox(
-                            height: 20,
-                            width: 20,
-                            child: CircularProgressIndicator(
-                              strokeWidth: 2,
-                              color: Colors.white,
-                            ),
-                          )
-                        : const Text('Créer mon compte'),
+                    child:
+                        isLoading
+                            ? const SizedBox(
+                              height: 20,
+                              width: 20,
+                              child: CircularProgressIndicator(
+                                strokeWidth: 2,
+                                color: Colors.white,
+                              ),
+                            )
+                            : const Text('Créer mon compte'),
                   ),
                 ),
                 const SizedBox(height: 16),
@@ -266,7 +266,9 @@ class _RegisterModuleState extends State<RegisterModule> {
 
   Future<void> _submit() async {
     if (!(_formKey.currentState?.validate() ?? false)) {
-      ErrorHandler.showWarningSnackbar('Veuillez remplir tous les champs requis');
+      ErrorHandler.showWarningSnackbar(
+        'Veuillez remplir tous les champs requis',
+      );
       return;
     }
 
@@ -290,7 +292,7 @@ class _RegisterModuleState extends State<RegisterModule> {
 
     if (success) {
       ErrorHandler.showSuccessSnackbar('Compte créé avec succès !');
-      Get.back();
+      Get.to(() => const HomeModule());
     } else {
       ErrorHandler.showErrorSnackbar(
         authController.error ?? 'Impossible de créer le compte',

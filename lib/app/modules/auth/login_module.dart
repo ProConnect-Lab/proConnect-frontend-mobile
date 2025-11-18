@@ -41,14 +41,10 @@ class _LoginModuleState extends State<LoginModule> {
             child: Column(
               children: [
                 // Logo et titre
-                Icon(
-                  Icons.business_center,
-                  size: 80,
-                  color: Colors.white,
-                ),
+                Icon(Icons.business_center, size: 80, color: Colors.white),
                 const SizedBox(height: 16),
                 const Text(
-                  'ProConnect',
+                  'Pro Connect',
                   style: TextStyle(
                     fontSize: 32,
                     fontWeight: FontWeight.bold,
@@ -58,10 +54,7 @@ class _LoginModuleState extends State<LoginModule> {
                 const SizedBox(height: 8),
                 const Text(
                   'Connectez-vous à votre espace professionnel',
-                  style: TextStyle(
-                    fontSize: 16,
-                    color: Colors.white70,
-                  ),
+                  style: TextStyle(fontSize: 16, color: Colors.white70),
                   textAlign: TextAlign.center,
                 ),
                 const SizedBox(height: 40),
@@ -75,9 +68,10 @@ class _LoginModuleState extends State<LoginModule> {
                       final isLoading = authController.isLoading;
                       return Form(
                         key: _formKey,
-                        autovalidateMode: _autoValidate
-                            ? AutovalidateMode.onUserInteraction
-                            : AutovalidateMode.disabled,
+                        autovalidateMode:
+                            _autoValidate
+                                ? AutovalidateMode.onUserInteraction
+                                : AutovalidateMode.disabled,
                         child: Column(
                           mainAxisSize: MainAxisSize.min,
                           crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -124,16 +118,17 @@ class _LoginModuleState extends State<LoginModule> {
                               height: 50,
                               child: ElevatedButton(
                                 onPressed: isLoading ? null : _submit,
-                                child: isLoading
-                                    ? const SizedBox(
-                                        height: 20,
-                                        width: 20,
-                                        child: CircularProgressIndicator(
-                                          strokeWidth: 2,
-                                          color: Colors.white,
-                                        ),
-                                      )
-                                    : const Text('Se connecter'),
+                                child:
+                                    isLoading
+                                        ? const SizedBox(
+                                          height: 20,
+                                          width: 20,
+                                          child: CircularProgressIndicator(
+                                            strokeWidth: 2,
+                                            color: Colors.white,
+                                          ),
+                                        )
+                                        : const Text('Se connecter'),
                               ),
                             ),
                             const SizedBox(height: 16),
@@ -146,14 +141,15 @@ class _LoginModuleState extends State<LoginModule> {
                                   style: TextStyle(fontSize: 14),
                                 ),
                                 TextButton(
-                                  onPressed: isLoading
-                                      ? null
-                                      : () {
-                                          Get.to(
-                                            () => const RegisterModule(),
-                                            routeName: AppRoutes.register,
-                                          );
-                                        },
+                                  onPressed:
+                                      isLoading
+                                          ? null
+                                          : () {
+                                            Get.to(
+                                              () => const RegisterModule(),
+                                              routeName: AppRoutes.register,
+                                            );
+                                          },
                                   child: const Text('Créer un compte'),
                                 ),
                               ],
