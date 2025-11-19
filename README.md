@@ -42,3 +42,23 @@ L'application (pilotée par GetX pour la navigation et l'état) propose :
 - Gestion de plusieurs entreprises
 - Création / modification / suppression de publications
 - Recherche textuelle des publications
+
+L'application mobile est située dans le dossier frontend/ et utilise :
+
+Framework : Flutter avec GetX pour la gestion d'état
+Design : Material Design 3 avec Google Fonts (Inter)
+Animations : flutter_animate pour les transitions fluides
+Stockage : flutter_secure_storage pour la persistance de session
+HTTP : Dio pour les appels API
+
+Fonctionnalités :
+
+✅ Design professionnel avec composants premium (PremiumCard, GradientHeader)
+✅ Animations d'entrée et transitions (fade, slide, scale)
+✅ Pull-to-refresh sur tous les onglets
+✅ Shimmer loading pendant le chargement des données
+✅ Édition de profil avec validation
+✅ CRUD complet des entreprises avec animations
+✅ Publications avec recherche, filtres et bottom sheet de détails
+✅ Gestion des erreurs avec snackbars contextuelles
+✅ Navigation personnalisée avec bottom bar animée
